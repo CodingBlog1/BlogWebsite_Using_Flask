@@ -1,0 +1,20 @@
+{
+  "parameter":
+  {
+    "blog_name": "Coding Blog",
+   "local_server" : "True",
+    "local_uri" : "sqlite:///Mdatabase.db",
+    "prod_uri": "sqlite:///Mdatabase.db",
+    "fb_url": "https://facebook.com/codingBlog",
+    "twt_url": "https://twitter.com/codingBlog",
+    "github_url": "https://github.com/codingBlog",
+    "gmail_user":"soyab",
+    "gmail_password": "soyab1221",
+    "no_of_post": 2,
+    "admin": "shoyab",
+    "password": "pass",
+    "UPLOAD_FILE_LOC": "D:\\PyCharm Project\\H1P2P\\static\\assets\\img"
+
+  }
+
+}

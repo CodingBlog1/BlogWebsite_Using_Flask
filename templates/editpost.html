@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+::placeholder {
+  color: black;
+  opacity: 1; /* Firefox */
+}
+
+
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid black;
+  border-radius: 4px;
+  resize: vertical;
+  font-size:17px;
+}
+#date{
+width: 100%;
+  padding: 12px;
+  border: 1px solid black;
+  border-radius: 4px;
+  resize: vertical;
+  font-size:17px;
+}
+
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+  font-size:19px;
+
+}
+
+button[type=submit] {
+  background-color: #04AA6D;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+}
+
+button[type=submit]:hover {
+  background-color: #45a049;
+}
+
+.container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+.col-25 {
+  float: left;
+  width: 25%;
+  margin-top: 6px;
+}
+
+.col-75 {
+  float: left;
+  width: 75%;
+  margin-top: 6px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+.col-h1{
+text-align:center;
+}
+
+sup{
+color:red;
+}
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .col-25, .col-75, input[type=submit] {
+    width: 100%;
+    margin-top: 0;
+  }
+}
+.p{
+font-size:20px;
+color:black;
+text-align:center;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h1 class="col-h1">Edit Post</h1>
+  <p class="p"> if Sno is equal to 0 Post will be Add as a new Post ,Otherwise Post will be update</p>
+  <form action="/edit/{{post.sno}}" method="post">
+
+
+    <div class="row">
+      <div class="col-25">
+        <label for="ftitle">Title</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="ftitle" name="title" placeholder="Enter the title.." value="{{post.title}}" >
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-25">
+        <label for="stitle">Sub-Title</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="stitle" name="subtitle" placeholder="Enter sub-title.." value="{{post.subtitle}}"  >
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-25">
+        <label for="slug">Slug</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="slug" name="slug" placeholder="Enter slug.." value="{{post.slug}}"  >
+      </div>
+      </div>
+
+         <div class="row">
+      <div class="col-25">
+        <label for="name">Enter Your name</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="name" name="name" placeholder="Enter name.."  value="{{post.name}}">
+      </div>
+      </div>
+
+          <div class="row">
+      <div class="col-25">
+        <label for="date">Date</label>
+      </div>
+      <div class="col-75" >
+        <input type="datetime-local" id="date" name="date" placeholder="Enter current date.." value="{{post.date}}" >
+      </div>
+      </div>
+
+
+    <div class="row">
+      <div class="col-25">
+        <label for="Content">Content</label>
+      </div>
+      <div class="col-75">
+        <textarea id="Content" name="content" placeholder="Write Definition.." style="height:200px" value="{{post.content}}" ></textarea>
+      </div>
+    </div>
+     <div class="row">
+      <div class="col-25">
+        <label for="Content">Example-1</label>
+      </div>
+      <div class="col-75">
+        <textarea id="Example-1" name="example1" placeholder="Example Heading" value="{{post.example1}}"></textarea>
+      </div>
+    </div>
+
+      <div class="row">
+      <div class="col-25">
+        <label for="Content">Content-1</label>
+      </div>
+      <div class="col-75">
+        <textarea id="Content1" name="content1" placeholder="Write Definition" style="height:200px" value="{{post.content1}}"></textarea>
+      </div>
+      </div>
+
+
+  <div class="row">
+      <div class="col-25">
+        <label for="name">Example-2</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="Example2" name="example2" placeholder="Example Heading-2.." value="{{post.example2}}"  >
+      </div>
+      </div>
+
+      <div class="row">
+      <div class="col-25">
+        <label for="Content">Content-2</label>
+      </div>
+      <div class="col-75">
+        <textarea id="Content2" name="content2" placeholder="Write Definition.." style="height:200px" value="{{post.content2}}"></textarea>
+      </div>
+      </div>
+
+
+      <div class="col-25">
+        <label for="img">Images</label>
+      </div>
+      <div class="col-75" >
+        <input type="text" id="img" name="img_file" placeholder="Enter current date.." value="{{post.img_file}}">
+      </div>
+
+
+
+    <div class="row">
+   <button type="submit" value="Submit" onclick="alert('Your data will be submitted.\n after click ok')">Submit</button>
+
+
+    </div>
+  </form>
+</div>
+
+</body>
+</html>

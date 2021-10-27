@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  text-align:center;
+}
+th{
+font-size:20px;
+}
+td{
+font-size:17px;
+}
+
+button{
+  background-color: DodgerBlue;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  font-size: 16px;
+  margin: 4px 2px;
+  opacity: 0.6;
+  transition: 0.3s;
+ height:80px;
+ border-radius: 12px;
+<!--background-color:DodgerBlue;-->
+<!--color:white;-->
+}
+
+button:hover{
+opacity:1;
+}
+.b{
+background-color: coral;
+}
+
+</style>
+</head>
+<body>
+
+<h1>Edit table</h1>
+
+<table style="width:100%">
+
+
+  <tr>
+    <th>Sno</th>
+    <th>Title</th>
+    <th>Sub-title</th>
+        <th>Name</th>
+    <th>Date</th>
+    <th>Content</th>
+    <th>Example-1</th>
+    <th>Content-1</th>
+    <th>Example-2</th>
+    <th>Content-2</th>
+      <th>Images/File</th>
+      <th>Edit</th>
+      <th>Delete</th>
+  </tr>
+    {% for pos in post %}
+
+  <tr>
+    <td>{{pos.sno}}</td>
+    <td>{{pos.title}}</td>
+    <td>{{pos.subtitle}}</td>
+       <td>{{pos.name}}</td>
+       <td>{{pos.date}}</td>
+       <td>{{pos.content}}</td>
+     <td>{{pos.example1}}</td>
+     <td>{{pos.content1}}</td>
+     <td>{{pos.example2}}</td>
+     <td>{{pos.content2}}</td>
+     <td>{{pos.img_file}}</td>
+
+      <td class="b"><a href="/edit/{{pos.sno}}"><button >Edit</button></a></td>
+     <td class="b"><a href="/delete/{{pos.sno}}"><button >Delete</button></a></td>
+  </tr>
+  {% endfor %}
+</table>
+
+</body>
+</html>
+

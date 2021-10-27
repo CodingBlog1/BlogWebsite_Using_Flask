@@ -1,0 +1,59 @@
+{% extends "layout.html" %}
+{% block body %}
+
+        <!-- Page Header-->
+        <header class="masthead" style="background-image: url('  {{url_for('static',filename='assets/img/contact-bg.jpg')}}  ')">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="page-heading">
+                            <h1>Contact Me</h1>
+                            <span class="subheading">Have questions? I have answers.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Main Content-->
+        <main class="mb-4">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <p>Want to get in touch? Fill out the form below to send me a message and I will get back to you as soon as possible!</p>
+                        <div class="my-5">
+                            <!-- * * * * * * * * * * * * * * *-->
+                            <!-- * * SB Forms Contact Form * *-->
+                            <!-- * * * * * * * * * * * * * * *-->
+                            <!-- This form is pre-integrated with SB Forms.-->
+                            <!-- To make this form functional, sign up at-->
+                            <!-- https://startbootstrap.com/solution/contact-forms-->
+                            <!-- to get an API token!-->
+                            <div class="container">
+  <form action="/Contact" method="post" >
+    <label> Name</label><br>
+    <input type="text" id="fname" name="name" placeholder="Your name.."><br><br>
+
+    <label> Mobile no.</label><br>
+    <input type="text" id="phone" name="phone" placeholder="Your Mobile no.."><br><br>
+
+ <label>Email</label><br>
+    <input type="email" name="email" placeholder="Your email.."><br><br>
+
+
+    <label>Message</label><br>
+    <textarea id="message" name="message" placeholder="Write something.." style="height:200px"></textarea><br><br>
+
+
+                                  <button type="submit" value="Submit" onclick="alert('Your data submitted \n Thank you for connected to Us')" style="background-color:#0085A1;color:white">Submit</button>
+
+  </form>
+</div>
+
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+       {% endblock %}

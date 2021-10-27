@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+::placeholder {
+  color: black;
+  opacity: 1; /* Firefox */
+}
+
+
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid black;
+  border-radius: 4px;
+  resize: vertical;
+  font-size:17px;
+}
+#date{
+width: 100%;
+  padding: 12px;
+  border: 1px solid black;
+  border-radius: 4px;
+  resize: vertical;
+  font-size:17px;
+}
+
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+  font-size:19px;
+
+}
+
+button[type=submit] {
+  background-color: #04AA6D;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+}
+
+button[type=submit]:hover {
+  background-color: #45a049;
+}
+
+.container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+.col-25,.col26 {
+  float: left;
+  width: 25%;
+  margin-top: 6px;
+}
+
+.col-75 ,.col76{
+  float: left;
+  width: 75%;
+  margin-top: 6px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+.col-h1{
+text-align:center;
+}
+
+sup{
+color:red;
+}
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .col-25, .col-75, input[type=submit] {
+    width: 100%;
+    margin-top: 0;
+  }
+}
+</style>
+</head>
+<body>
+
+<div>
+    <form action="/uploader" method="post" enctype="multipart/form-data">
+          <div class="col-26">
+        <label>Upload file/Images</label>
+      </div>
+         <div class="col-76">
+    <input type="file" name="File1">
+         </div>
+  <button type="submit" onclick="alert('Your file uploaded Successful')" class="btn">Submit</button>
+
+
+</form>
+</div>
+<hr>
+
+
+<div class="container">
+    <h1 class="col-h1">Add New Post</h1>
+  <form action="/Addpost" method="post">
+
+
+    <div class="row">
+      <div class="col-25">
+        <label for="ftitle"><sup>*</sup>Title</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="ftitle" name="title" placeholder="Enter the title.." required>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-25">
+        <label for="stitle"><sup>*</sup>Sub-Title</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="stitle" name="subtitle" placeholder="Enter sub-title.." required>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-25">
+        <label for="slug"><sup>*</sup>Slug</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="slug" name="slug" placeholder="Enter slug.." required>
+      </div>
+      </div>
+
+         <div class="row">
+      <div class="col-25">
+        <label for="name"><sup>*</sup>Enter Your name</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="name" name="name" placeholder="Enter name.." required>
+      </div>
+      </div>
+
+          <div class="row">
+      <div class="col-25">
+        <label for="date"><sup>*</sup>Date</label>
+      </div>
+      <div class="col-75" >
+        <input type="datetime-local" id="date" name="date" placeholder="Enter current date.." required>
+      </div>
+      </div>
+
+
+    <div class="row">
+      <div class="col-25">
+        <label for="Content"><sup>*</sup>Content</label>
+      </div>
+      <div class="col-75">
+        <textarea id="Content" name="content" placeholder="Write Definition.." style="height:200px" required></textarea>
+      </div>
+    </div>
+     <div class="row">
+      <div class="col-25">
+        <label for="Content">Example-1</label>
+      </div>
+      <div class="col-75">
+        <textarea id="Example-1" name="example1" placeholder="Example Heading"></textarea>
+      </div>
+    </div>
+
+      <div class="row">
+      <div class="col-25">
+        <label for="Content">Content-1</label>
+      </div>
+      <div class="col-75">
+        <textarea id="Content1" name="content1" placeholder="Write Definition" style="height:200px"></textarea>
+      </div>
+      </div>
+
+
+  <div class="row">
+      <div class="col-25">
+        <label for="name">Example-2</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="Example2" name="example2" placeholder="Example Heading-2.." >
+      </div>
+      </div>
+
+      <div class="row">
+      <div class="col-25">
+        <label for="Content">Content-2</label>
+      </div>
+      <div class="col-75">
+        <textarea id="Content2" name="content2" placeholder="Write Definition.." style="height:200px"></textarea>
+      </div>
+      </div>
+
+
+      <div class="col-25">
+        <label for="img">Images</label>
+      </div>
+      <div class="col-75" >
+        <input type="text" id="img" name="img_file" placeholder="Enter current date..">
+      </div>
+
+
+
+    <div class="row">
+   <button type="submit" value="Submit" onclick="alert('Your data will be submitted.\n after click ok')">Submit</button>
+
+
+    </div>
+  </form>
+</div>
+
+</body>
+</html>

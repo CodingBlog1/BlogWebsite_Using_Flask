@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Admin Pannel</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+  margin:0px;
+  padding:0px;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Style the header */
+header {
+  background-color: #666;
+  padding: 10px;
+  text-align: center;
+  font-size: 30px;
+  color: white;
+
+}
+
+/* Create two columns/boxes that floats next to each other */
+nav {
+  float: left;
+  width: 15%;
+  height: 300px; /* only for demonstration, should be removed */
+  background: #666;
+  padding: 20px;
+  height:590px;
+}
+
+/* Style the list inside the menu */
+nav ul {
+  list-style-type: none;
+  padding: 0;
+
+}
+nav ul li {
+padding:10px;
+}
+
+nav ul a{
+text-decoration:none;
+margin:20px;
+color:white;
+}
+nav ul a:hover{
+color:red;
+}
+
+article {
+  float: left;
+  padding: 20px;
+  width: 70%;
+  background-color: #f1f1f1;
+  height: 650px; /* only for demonstration, should be removed */
+}
+
+/* Clear floats after the columns */
+section::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Style the footer */
+footer {
+  background-color: #777;
+  padding: 10px;
+  text-align: center;
+  color: white;
+}
+
+/* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
+@media (max-width: 600px) {
+  nav, article {
+    width: 100%;
+    height: auto;
+  }
+}
+@media (max-width: 600px) {
+  table {
+    overflow-x:auto;
+  }
+}
+
+
+<!--&lt;!&ndash;Table Style&ndash;&gt;-->
+<!--table, th, td {-->
+<!--  border: 1px solid black;-->
+<!--  border-collapse: collapse;-->
+<!--  text-align:center;-->
+<!--}-->
+<!--table{-->
+<!-- border-collapse: collapse;-->
+<!--}-->
+<!--th{-->
+<!--font-size:20px;-->
+<!--}-->
+<!--td{-->
+<!--font-size:17px;-->
+<!--}-->
+
+
+<!--Table styles-->
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+
+table, td, th {
+  border: 1px solid black;
+  text-align: left;
+  padding: 8px;
+  border-collapse: collapse;
+}
+
+th{
+background-color:#777;
+color:white;
+ border: 1px solid black;
+  text-align: center;
+  padding: 8px;
+  border-collapse: collapse;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+
+
+</style>
+</head>
+<body>
+
+
+<header>
+  <h3>Admin Pannel</h3>
+
+
+</header>
+
+<section>
+  <nav>
+    <ul>
+       <li><a href="/dashboard.html">Home</a></li>
+      <li><a href="/addpost.html">Add New Post</a></li>
+      <li><a href="/Edit.html">Edit Post</a></li>
+      <li><a href="/upload">Upload File</a></li>
+      <li><a href="/logout">Log out</a></li>
+    </ul>
+  </nav>
+
+  <article>
+
+    <h2>All Posts</h2>
+    <hr>
+    <br>
+
+      <div style="overflow-x: auto;">
+  <table>
+    <tr>
+     <th>Sno</th>
+    <th>Title</th>
+    <th>Sub-title</th>
+        <th>Name</th>
+    <th>Date</th>
+    <th>Content</th>
+    <th>Example-1</th>
+    <th>Content-1</th>
+    <th>Example-2</th>
+    <th>Content-2</th>
+     <th>Images-file</th>
+    </tr>
+      {% for pos in post %}
+    <tr>
+      <td>{{pos.sno}}</td>
+    <td>{{pos.title}}</td>
+    <td>{{pos.subtitle}}</td>
+       <td>{{pos.name}}</td>
+       <td>{{pos.date}}</td>
+       <td>{{pos.content}}</td>
+     <td>{{pos.example1}}</td>
+     <td>{{pos.content1}}</td>
+     <td>{{pos.example2}}</td>
+     <td>{{pos.content2}}</td>
+     <td>{{pos.img_file}}</td>
+    </tr>
+    {% endfor %}
+  </table>
+</div>
+<!--<table style="width:100%">-->
+
+
+<!--  <tr>-->
+<!--    <th>Sno</th>-->
+<!--    <th>Title</th>-->
+<!--    <th>Sub-title</th>-->
+<!--        <th>Name</th>-->
+<!--    <th>Date</th>-->
+<!--    <th>Content</th>-->
+<!--    <th>Example-1</th>-->
+<!--    <th>Content-1</th>-->
+<!--    <th>Example-2</th>-->
+<!--    <th>Content-2</th>-->
+<!--     <th>Images-file</th>-->
+
+<!--  </tr>-->
+<!--    {% for pos in post %}-->
+
+<!--  <tr>-->
+<!--    <td>{{pos.sno}}</td>-->
+<!--    <td>{{pos.title}}</td>-->
+<!--    <td>{{pos.subtitle}}</td>-->
+<!--       <td>{{pos.name}}</td>-->
+<!--       <td>{{pos.date}}</td>-->
+<!--       <td>{{pos.content}}</td>-->
+<!--     <td>{{pos.example1}}</td>-->
+<!--     <td>{{pos.content1}}</td>-->
+<!--     <td>{{pos.example2}}</td>-->
+<!--     <td>{{pos.content2}}</td>-->
+<!--     <td>{{pos.img_file}}</td>-->
+
+<!--  </tr>-->
+<!--  {% endfor %}-->
+<!--</table>-->
+
+  </article>
+</section>
+
+<!--<footer>-->
+<!--  <p>&copy; {{parameter['blog_name']}} 2017–2021</p>-->
+<!--</footer>-->
+
+</body>
+</html>
+
