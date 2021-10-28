@@ -1,7 +1,7 @@
 import json
 import os
 import math
-from flask import Flask, render_template, request, session, redirect
+from flask import Flask, render_template, request, session, redirect, flash, url_for
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.utils import secure_filename
 
@@ -12,6 +12,7 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = 'H1p2p'
 app.config['UPLOAD_FOLDER'] = parameter['UPLOAD_FILE_LOC']
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:@localhost/codingblog'
+ALLOWED_EXTENSIONS = {'txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'}
 SQLALCHEMY_TRACK_MODIFICATIONS = False
 db = SQLAlchemy(app)
 
@@ -48,7 +49,8 @@ def main():
     if not str(page).isnumeric():
         page = 1
     page = int(page)
-    post = post[(page-1) * int(parameter['no_of_post']): (page-1) * int(parameter['no_of_post']) + int(parameter['no_of_post'])]
+    post = post[(page - 1) * int(parameter['no_of_post']): (page - 1) * int(parameter['no_of_post']) + int(
+        parameter['no_of_post'])]
 
     if page == 1:
         prev = "#"
@@ -98,9 +100,10 @@ def sign():
 
 @app.route("/Edit.html")
 def Edit():
-    post = Posts.query.filter_by().all()
-    return render_template('Edit.html', parameter=parameter, post=post)
-
+    if 'user' in session and session['user'] == parameter['admin']:
+        post = Posts.query.filter_by().all()
+        return render_template('Edit.html', parameter=parameter, post=post)
+    return render_template('sign.html', parameter=parameter)
 
 @app.route("/edit/<string:sno>", methods=['GET', 'POST'])
 def edit(sno):
@@ -190,8 +193,9 @@ def con():
 
 @app.route("/addpost.html")
 def addpost():
-    return render_template('/addpost.html')
-
+    if 'user' in session and session['user'] == parameter['admin']:
+        return render_template('/addpost.html')
+    return render_template("sign.html",parameter=parameter)
 
 @app.route("/logout")
 def Logout():
@@ -214,9 +218,6 @@ def Upload():
         f = request.files['File1']
         f.save(os.path.join(app.config['UPLOAD_FOLDER'], secure_filename(f.filename)))
         return render_template("addpost.html", parameter=parameter)
-
-
-# return render_template("/addpost.html", parameter=parameter)
 
 
 @app.route("/Addpost", methods=['GET', 'POST'])

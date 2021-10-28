@@ -45,6 +45,7 @@ button[type=submit] {
   border-radius: 4px;
   cursor: pointer;
   float: right;
+  margin-top:20px;
 }
 
 button[type=submit]:hover {
@@ -149,7 +150,7 @@ text-align:center;
         <label for="date">Date</label>
       </div>
       <div class="col-75" >
-        <input type="datetime-local" id="date" name="date" placeholder="Enter current date.." value="{{post.date}}" >
+        <textarea type="datetime-local" id="date" name="date" placeholder="Enter current date..">{{post.date}}</textarea>
       </div>
       </div>
 
@@ -159,31 +160,31 @@ text-align:center;
         <label for="Content">Content</label>
       </div>
       <div class="col-75">
-        <textarea id="Content" name="content" placeholder="Write Definition.." style="height:200px" value="{{post.content}}" ></textarea>
+        <textarea id="Content" name="content" placeholder="Write Definition.." style="height:200px" >{{post.content}}</textarea>
       </div>
     </div>
      <div class="row">
       <div class="col-25">
-        <label for="Content">Example-1</label>
+        <label for="Example-1">Example-1</label>
       </div>
       <div class="col-75">
-        <textarea id="Example-1" name="example1" placeholder="Example Heading" value="{{post.example1}}"></textarea>
+        <textarea id="Example-1" name="example1" placeholder="Example Heading">{{post.example1}}</textarea>
       </div>
     </div>
 
       <div class="row">
       <div class="col-25">
-        <label for="Content">Content-1</label>
+        <label for="Content1">Content-1</label>
       </div>
       <div class="col-75">
-        <textarea id="Content1" name="content1" placeholder="Write Definition" style="height:200px" value="{{post.content1}}"></textarea>
+        <textarea id="Content1" name="content1" placeholder="Write Definition" style="height:200px">{{post.content1}}</textarea>
       </div>
       </div>
 
 
   <div class="row">
       <div class="col-25">
-        <label for="name">Example-2</label>
+        <label for="Example2">Example-2</label>
       </div>
       <div class="col-75">
         <input type="text" id="Example2" name="example2" placeholder="Example Heading-2.." value="{{post.example2}}"  >
@@ -195,7 +196,7 @@ text-align:center;
         <label for="Content">Content-2</label>
       </div>
       <div class="col-75">
-        <textarea id="Content2" name="content2" placeholder="Write Definition.." style="height:200px" value="{{post.content2}}"></textarea>
+        <textarea id="Content2" name="content2" placeholder="Write Definition.." style="height:200px">{{post.content2}}</textarea>
       </div>
       </div>
 
