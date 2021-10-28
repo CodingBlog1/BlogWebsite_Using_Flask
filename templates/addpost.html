@@ -9,9 +9,9 @@
 
 ::placeholder {
   color: black;
-  opacity: 1; /* Firefox */
+  opacity: 0.5; /* Firefox */
+  color:red;
 }
-
 
 input[type=text], select, textarea {
   width: 100%;
@@ -20,6 +20,20 @@ input[type=text], select, textarea {
   border-radius: 4px;
   resize: vertical;
   font-size:17px;
+}
+
+#file{
+width:50%;
+padding:12px;
+border:1px solid black;
+font-size:17px;
+}
+
+#img{
+width:100%;
+padding:12px;
+border:1px solid black;
+font-size:17px;
 }
 #date{
 width: 100%;
@@ -37,7 +51,7 @@ label {
 
 }
 
-button[type=submit] {
+.btn2[type=submit] {
   background-color: #04AA6D;
   color: white;
   padding: 12px 20px;
@@ -45,6 +59,17 @@ button[type=submit] {
   border-radius: 4px;
   cursor: pointer;
   float: right;
+  margin-top:15px;
+}
+.btn1[type=submit] {
+  background-color: #04AA6D;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top:19px;
+  margin-left:250px;
 }
 
 button[type=submit]:hover {
@@ -91,6 +116,12 @@ color:red;
     margin-top: 0;
   }
 }
+@media screen and (max-width:600px){
+#file{
+width:100%;
+}
+}
+
 </style>
 </head>
 <body>
@@ -101,9 +132,10 @@ color:red;
         <label>Upload file/Images</label>
       </div>
          <div class="col-76">
-    <input type="file" name="File1">
+    <input type="file" name="File1" id="file" required>
+              <button type="submit" onclick="alert('Your file uploaded Successful')" class="btn1">Submit</button>
          </div>
-  <button type="submit" onclick="alert('Your file uploaded Successful')" class="btn">Submit</button>
+
 
 
 </form>
@@ -214,15 +246,13 @@ color:red;
         <label for="img">Images</label>
       </div>
       <div class="col-75" >
-        <input type="text" id="img" name="img_file" placeholder="Enter current date..">
-      </div>
+        <input type="file" id="img" name="img_file">
+      </div><br><br>
 
 
 
     <div class="row">
-   <button type="submit" value="Submit" onclick="alert('Your data will be submitted.\n after click ok')">Submit</button>
-
-
+   <button type="submit" value="Submit" onclick="alert('Your data will be submitted.\n after click ok')" class="btn2">Submit</button>
     </div>
   </form>
 </div>
