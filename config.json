@@ -11,8 +11,8 @@
     "gmail_user":"soyab",
     "gmail_password": "soyab1221",
     "no_of_post": 2,
-    "admin": "shoyab",
-    "password": "pass",
+    "admin": "",
+    "password": "",
     "UPLOAD_FILE_LOC": "D:\\PyCharm Project\\H1P2P\\static\\assets\\img"
 
   }
